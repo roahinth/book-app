@@ -6,4 +6,5 @@ import com.chainsys.book.model.book;
 public interface bookservice {
 
 	book findbyname(String name) throws booknotfoundexception;
+	book findbyid(int id) throws booknotfoundexception;
 }

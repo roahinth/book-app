@@ -42,4 +42,19 @@ public class bookdaoimpl implements bookdao {
 		}
 		return book;
 	}
+	public  book findbyid(int id) {
+		// TODO Auto-generated method stub
+		book book = null;
+		try {
+			pstmt = con.prepareStatement("select * from book_2598 where id=?");
+			pstmt.setInt(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				book = new book(rs.getInt("id"), rs.getString("name"), rs.getDate("publishedDate").toLocalDate());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return book;
+	}
 }

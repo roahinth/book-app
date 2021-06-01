@@ -19,6 +19,7 @@ public class bookclient {
 		String date;
 		DateTimeFormatter dateFormat;
 		String name;
+		int id;
 		System.out.println("Enter the choice");
 		Scanner scanner = new Scanner(System.in);
 		int choice = scanner.nextInt();
@@ -31,6 +32,16 @@ public class bookclient {
 			name = scanner.next();
 			try {
 				book pro = service.findbyname(name);
+				System.out.println(pro);
+			} catch (booknotfoundexception e) {
+			}
+			break;
+		case 2:
+			System.out.println("Find the Author By id to find details");
+			System.out.println("Enter the Author id");
+			id = scanner.nextInt();
+			try {
+				book pro = service.findbyid(id);
 				System.out.println(pro);
 			} catch (booknotfoundexception e) {
 			}
