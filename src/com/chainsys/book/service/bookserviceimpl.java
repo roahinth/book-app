@@ -23,7 +23,7 @@ public class bookserviceimpl implements bookservice {
 		if (book == null) {
 			throw new booknotfoundexception("Product Id Not Found");
 		} else {
-		return null;
+		return book;
 	}
 }
 }
