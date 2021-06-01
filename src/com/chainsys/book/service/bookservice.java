@@ -7,4 +7,5 @@ public interface bookservice {
 
 	book findbyname(String name) throws booknotfoundexception;
 	book findbyid(int id) throws booknotfoundexception;
+	book deletebyid(int id) throws booknotfoundexception;
 }

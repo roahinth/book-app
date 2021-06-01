@@ -46,6 +46,16 @@ public class bookclient {
 			} catch (booknotfoundexception e) {
 			}
 			break;
+		case 3:
+			System.out.println("delete the Author details By entering id");
+			System.out.println("Enter the Author id");
+			id = scanner.nextInt();
+			try {
+				book pro = service.deletebyid(id);
+				System.out.println(pro);
+			} catch (booknotfoundexception e) {
+			}
+			break;
 		default:
 			break;
 		}

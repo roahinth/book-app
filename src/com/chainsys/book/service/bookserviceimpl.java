@@ -35,6 +35,15 @@ public class bookserviceimpl implements bookservice {
 		return book;
 	}
 }
+	public book deletebyid(int id) throws booknotfoundexception {
+		// TODO Auto-generated method stub
+		book  book = dao.deletebyid(id);
+		if (book == null) {
+			throw new booknotfoundexception("Author Id Not Found");
+		} else {
+		return book;
+	}
+}
 }
 
 
