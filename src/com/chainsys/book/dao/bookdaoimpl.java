@@ -1,12 +1,16 @@
 package com.chainsys.book.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 //import java.util.Set;
 
+import java.time.LocalDate;
+import java.util.List;
+import java.time.format.DateTimeFormatter;
 import com.chainsys.book.model.book;
 
 public class bookdaoimpl implements bookdao {
@@ -72,4 +76,19 @@ public class bookdaoimpl implements bookdao {
 		}
 		return book;
 	}
+	public book findByDate(LocalDate date) {
+		book book = null;
+		try {
+			pstmt = con.prepareStatement("select * from book_2598 where publishedDate=?");
+			pstmt.setDate(1, Date.valueOf(date));
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				book = new book(rs.getInt("id"), rs.getString("name"), rs.getDate("expiry_date").toLocalDate());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return book;
+	}
+
 }
