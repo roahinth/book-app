@@ -1,9 +1,9 @@
 package com.chainsys.book.test;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-//import java.util.List;
+import java.util.List;
 import java.util.Scanner;
-//import java.util.Set;
+import java.util.Set;
 import java.util.Set;
 
 import com.chainsys.book.exception.booknotfoundexception;
@@ -17,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 public class bookclient {
 	public static void main(String[] args) {
 
-		//Set<Product> productSet;
+		
 		bookservice service = new bookserviceimpl();
 		String date;
 		DateTimeFormatter dateFormat;
@@ -26,8 +26,7 @@ public class bookclient {
 		System.out.println("Enter the choice");
 		Scanner scanner = new Scanner(System.in);
 		int choice = scanner.nextInt();
-	//	List<String> l;
-	//	List<Integer> f;
+		List<String> nlist;
 		switch (choice) {
 		case 1:
 			System.out.println("Find the Author By name to find details");
@@ -70,6 +69,11 @@ public class bookclient {
 			} catch (booknotfoundexception e) {
 			}
 			break;	
+		case 5:
+			System.out.println("Find All Author Name");
+			nlist = service.findAllName();
+			System.out.println(nlist);
+			break;
 
 		default:
 			break;

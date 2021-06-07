@@ -4,6 +4,7 @@ import com.chainsys.book.model.book;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 import java.time.format.DateTimeFormatter;
 public interface bookdao {
 	
@@ -12,4 +13,5 @@ public interface bookdao {
 	book findbyid(int id);
 	book deletebyid(int id);
 	book findByDate(LocalDate date);
+	List<String> findallname()
 }

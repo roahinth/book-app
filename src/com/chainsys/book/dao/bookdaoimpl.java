@@ -6,11 +6,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.util.Set;
-
+import java.util.Set;
+import java.util.List;
 import java.time.LocalDate;
 import java.util.List;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import com.chainsys.book.model.book;
 
 public class bookdaoimpl implements bookdao {
@@ -19,6 +20,7 @@ public class bookdaoimpl implements bookdao {
 	private static Connection con;
 	private static PreparedStatement pstmt;
 	private static ResultSet rs;
+	private static ArrayList<String> nlist;
 //	private static Set<book> bookSet;
 
 	public bookdaoimpl() {
@@ -89,6 +91,19 @@ public class bookdaoimpl implements bookdao {
 			e.printStackTrace();
 		}
 		return book;
+	}
+	public List<String> findallname() {
+		try {
+			pstmt = con.prepareStatement("select * from book_2598");
+			rs = pstmt.executeQuery();
+			nlist = new ArrayList<>();
+			while (rs.next()) {
+				nlist.add(rs.getString("name"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return nlist;
 	}
 
 }

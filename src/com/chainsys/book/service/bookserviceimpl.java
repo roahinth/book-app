@@ -5,6 +5,7 @@ package com.chainsys.book.service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 import java.time.format.DateTimeFormatter;
 import com.chainsys.book.dao.bookdao;
 import com.chainsys.book.dao.bookdaoimpl;
@@ -54,6 +55,9 @@ public class bookserviceimpl implements bookservice {
 		} else {
 			return book;
 		}
+	}
+	public List<String> findAllName() {
+		return dao.findallname();
 	}
 }
 
